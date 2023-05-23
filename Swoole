@@ -1,0 +1,6 @@
+FROM php:latest
+RUN pecl install openswoole-22.0.0
+RUN docker-php-ext-enable openswoole
+COPY index.php /var/www
+EXPOSE 9501
+ENTRYPOINT ["php","/var/www/index.php","start"]
